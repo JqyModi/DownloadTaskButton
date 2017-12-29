@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DownloadTaskButton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CJj-8L-3lZ" customClass="DownloadTaskButton" customModule="DownloadTaskButton" customModuleProvider="target">
+                                <rect key="frame" x="67" y="156" width="240" height="128"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Xsr-aS-Q0t"/>
+                                    <constraint firstAttribute="height" constant="128" id="vqm-5A-O3x"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ts-d0-5lG">
+                                <rect key="frame" x="67" y="318" width="32" height="30"/>
+                                <state key="normal" title="start"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYU-WW-0Hi">
+                                <rect key="frame" x="166" y="318" width="42" height="30"/>
+                                <state key="normal" title="pause"/>
+                                <connections>
+                                    <action selector="pause:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ewQ-gQ-TsE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPO-gd-MNt">
+                                <rect key="frame" x="259" y="318" width="51" height="30"/>
+                                <state key="normal" title="resume"/>
+                                <connections>
+                                    <action selector="resume:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cET-2L-zhV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOF-70-TGl">
+                                <rect key="frame" x="67" y="318" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="start"/>
+                                <connections>
+                                    <action selector="start:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JvJ-ju-25k"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7Ts-d0-5lG" firstAttribute="top" secondItem="CJj-8L-3lZ" secondAttribute="bottom" constant="34" id="3iS-Zo-bV7"/>
+                            <constraint firstItem="CJj-8L-3lZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="136" id="56Y-p3-qKz"/>
+                            <constraint firstItem="7Ts-d0-5lG" firstAttribute="leading" secondItem="CJj-8L-3lZ" secondAttribute="leading" id="7Bx-xN-YTz"/>
+                            <constraint firstItem="cYU-WW-0Hi" firstAttribute="leading" secondItem="7Ts-d0-5lG" secondAttribute="trailing" constant="67" id="8J1-4u-Z3d"/>
+                            <constraint firstItem="cYU-WW-0Hi" firstAttribute="top" secondItem="CJj-8L-3lZ" secondAttribute="bottom" constant="34" id="Bru-go-hIg"/>
+                            <constraint firstItem="CJj-8L-3lZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Vo1-PQ-A8O"/>
+                            <constraint firstItem="DPO-gd-MNt" firstAttribute="top" secondItem="CJj-8L-3lZ" secondAttribute="bottom" constant="34" id="jhh-Ie-8uN"/>
+                            <constraint firstItem="DPO-gd-MNt" firstAttribute="leading" secondItem="cYU-WW-0Hi" secondAttribute="trailing" constant="51" id="k4k-NJ-Ukg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="downloadTaskBtn" destination="CJj-8L-3lZ" id="rcn-dm-Szi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
