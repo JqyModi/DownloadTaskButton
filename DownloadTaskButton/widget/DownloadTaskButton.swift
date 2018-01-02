@@ -33,6 +33,8 @@ class DownloadTaskButton: UIButton {
     override func awakeFromNib() {
         width = bounds.width
         height = bounds.height
+        
+        lineWidth = 5
     }
     
     // Only override draw() if you perform custom drawing.
@@ -45,9 +47,11 @@ class DownloadTaskButton: UIButton {
     private func drawArcWithProgress(ratio: CGFloat) {
         //
         let arcCenter = CGPoint(x: width/2, y: height/2)
-        let radius = (width > height) ? height/2 : width/2
+        var radius = (width > height) ? height/2 : width/2
+        radius -= self.lineWidth * 0.5
         let startAngle: CGFloat = CGFloat(-M_PI_2)
-        let endAngle = ratio * radius + startAngle
+        let endAngle = ratio * 2 * CGFloat(M_PI) + startAngle
+        debugPrint(" endAngle ---> \(endAngle)")
         let path = UIBezierPath(arcCenter: arcCenter, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         path.lineWidth = lineWidth
         //颜色
