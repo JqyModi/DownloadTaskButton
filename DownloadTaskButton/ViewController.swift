@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         if urlSession == nil {
             //全局配置 替代URLRequest配置：
             let config = URLSessionConfiguration.default
-            //代理Queue暂时设置为nil
+            //代理Queue暂时设置为nil: 下载本身是异步的这里设置的只是代理的工作队列，设置为nil相当于异步
             urlSession = URLSession(configuration: config, delegate: self, delegateQueue: nil)
         }
         return urlSession!
@@ -82,7 +82,8 @@ class ViewController: UIViewController {
 //        DispatchQueue.global().sync {
 //            downloadFileWithUrlByURLSession(urlStr: urlStrEncode!)
 //        }
-        downloadFileWithUrlAndProgressByURLSession(urlStr: urlStrEncode!)
+        
+        requestHeadInfoResponse(urlStr: urlStrEncode!)
     }
     
     @IBAction func pause(_ sender: UIButton) {
@@ -221,6 +222,20 @@ class ViewController: UIViewController {
         self.downloadTask?.resume()
     }
     
+    /**
+     *  Desc:发送一个同步方法来获取服务器中响应头数据: 下载文件时需要获取到下载文件的大小、建议保存的名称、类型等信息
+     *  Param:
+     */
+    private func requestHeadInfoResponse(urlStr: String) {
+        let request = URLRequest(url: URL(string: urlStr)!)
+        var response: URLResponse? = URLResponse()
+        do{
+            let data = try NSURLConnection.sendSynchronousRequest(request, returning: &response)
+            debugPrint("response ====> \(response)")
+        }catch {
+            debugPrint("error ====> \(error)")
+        }
+    }
 }
 
 extension ViewController: NSURLConnectionDataDelegate {
